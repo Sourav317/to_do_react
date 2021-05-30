@@ -51,7 +51,7 @@ class TodoForm extends Component {
                 </div>
             </div>
         )
-    }
+            }
 }
 
 export default TodoForm
