@@ -28,6 +28,19 @@ class TodoForm extends Component {
         }
     }
 
+    DeleteHandler = (id) =>{
+        console.log("deleted", id);
+        const Olditems = [...this.state.items]
+        console.log("Olditems", Olditems);
+        const items = Olditems.filter((element, i) => {
+            //filtering the deleted id from item and returning the non-matched
+            //(that we dont want to delete) todos to new arr
+        return i !== id
+        })
+        console.log("Newitems", items);
+        this.setState({ items: items });
+    }
+
     render(){
         return(
             <div className ='Container'>
@@ -43,7 +56,8 @@ class TodoForm extends Component {
                     <ul>
                     {
                     this.state.items.map((value, i) => {
-                      return <Todos key={i} id={i} value={value} />
+                      return <Todos key={i} id={i} value={value} sendData = {this.DeleteHandler}/>
+                      //passing the deleteHandler as props to todos.js so that we can use this function over there
                     })
                   }
                         {console.log(this.state.items)}

@@ -1,7 +1,7 @@
 function todos(props) {
         return(
             <ul>
-                <li>{props.value} <button> X </button></li>
+                <li>{props.value} <button onClick = {() => {props.sendData(props.id)}}> X </button></li>
             </ul>
         )
 }
