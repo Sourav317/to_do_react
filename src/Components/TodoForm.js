@@ -17,6 +17,17 @@ class TodoForm extends Component {
 
         this.setState ({text : e.target.value})
     }
+
+    AddHandler = (e) =>{
+        if(this.state.text !== ''){
+            //using spread operator to add the input field value to the existing items array
+            //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+
+            const items =[...this.state.items, this.state.text];
+            this.setState({items : items , text : ""});
+        }
+    }
+
     render(){
         return(
             <div className ='Container'>
@@ -26,11 +37,16 @@ class TodoForm extends Component {
                         <input type='text' className='input-cls-4' placeholder='Enter your Todo'
                          value ={this.state.text} onChange={this.ChangeHandler} required />
                     </div>
-                    <button className='adding-btn'>ADD</button>
+                    <button className='adding-btn' onClick={this.AddHandler}>ADD</button>
                 </div>
                 <div className='todos-section'>
                     <ul>
-                        <Todos />
+                    {
+                    this.state.items.map((value, i) => {
+                      return <Todos key={i} id={i} value={value} />
+                    })
+                  }
+                        {console.log(this.state.items)}
                     </ul>
                 </div>
             </div>

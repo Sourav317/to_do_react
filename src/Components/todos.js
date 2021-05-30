@@ -1,8 +1,8 @@
-function todos() {
+function todos(props) {
         return(
             <ul>
-                <li> inside todos.js</li>
-                <li> burger</li>
+                <li>{props.value}</li>
+                
             </ul>
         )
 }
