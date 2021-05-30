@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+}
+
+.Container{
+    margin-top: 3%;
+    margin-left:30%;
+    width:40%;
+    background-color: cadetblue;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.heading{
+    margin-top: 10px;
+}
+.input-section{
+    display: flex;
+    justify-content: center;
+}
+
+.todos-section{
+    display: flex;
+    flex-direction: column;
+}
